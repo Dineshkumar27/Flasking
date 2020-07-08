@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,url_for
 app = Flask(__name__)
 
 posts=[
@@ -7,6 +7,12 @@ posts=[
         'title':'Python flask',
         'content':'First post content',
         'date_posted':'July 8, 2020'
+    },
+{
+        'author':'Ranjan Sha',
+        'title':'Python Django',
+        'content':'First Django Conent Blog',
+        'date_posted':'July 9, 2020'
     }
 ]
 @app.route('/')
@@ -17,7 +23,7 @@ def hello_world():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html',title="About us")
 
 
 if __name__=='__main__':
